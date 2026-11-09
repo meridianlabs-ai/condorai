@@ -211,10 +211,9 @@ def test_jobs_that_can_write_use_no_cache() -> None:
 
 
 def test_ruff_comes_from_uv_lock() -> None:
-    # ruff-action installs its own ruff, outside the shared action.
-    ruff = [
-        w for w, s in steps() if s.get("uses", "").startswith("astral-sh/ruff-action@")
-    ]
+    # Any ruff-action (astral-sh, chartboost, ...) installs its own ruff,
+    # outside the shared action.
+    ruff = [w for w, s in steps() if "/ruff-action@" in s.get("uses", "")]
     assert ruff == [], f"run ruff with uv run --no-sync in {ruff}"
 
 
