@@ -20,10 +20,10 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: meridianlabs-ai/actions/install-python-dependencies@3bc608093ab8b8dd7f82764a863d9d5f9dce61a5 # main
+      - uses: meridianlabs-ai/actions/install-python-dependencies@330f3df6492418d6b25dc2631fc31143489f4674 # main
         with:
           versions: locked
           python-version: ${{ matrix.python-version }}
@@ -45,10 +45,10 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: meridianlabs-ai/actions/install-python-dependencies@3bc608093ab8b8dd7f82764a863d9d5f9dce61a5 # main
+      - uses: meridianlabs-ai/actions/install-python-dependencies@330f3df6492418d6b25dc2631fc31143489f4674 # main
         with:
           versions: locked
           python-version: ${{ matrix.python-version }}
@@ -68,10 +68,10 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: meridianlabs-ai/actions/install-python-dependencies@3bc608093ab8b8dd7f82764a863d9d5f9dce61a5 # main
+      - uses: meridianlabs-ai/actions/install-python-dependencies@330f3df6492418d6b25dc2631fc31143489f4674 # main
         with:
           versions: locked
           python-version: ${{ matrix.python-version }}
@@ -91,13 +91,13 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       # The build toolchain that publish.yaml uses, pinned with hashes. To
       # update the file, see publish.yaml.
       - name: Install build toolchain
-        uses: meridianlabs-ai/actions/install-python-dependencies@3bc608093ab8b8dd7f82764a863d9d5f9dce61a5 # main
+        uses: meridianlabs-ai/actions/install-python-dependencies@330f3df6492418d6b25dc2631fc31143489f4674 # main
         with:
           versions: hashed-requirements
           python-version: ${{ matrix.python-version }}
@@ -116,7 +116,7 @@ jobs:
       # The locked runtime dependencies, without the project, then the wheel
       # with --no-deps. A second call in a job must use the first call's
       # actions-cache.
-      - uses: meridianlabs-ai/actions/install-python-dependencies@3bc608093ab8b8dd7f82764a863d9d5f9dce61a5 # main
+      - uses: meridianlabs-ai/actions/install-python-dependencies@330f3df6492418d6b25dc2631fc31143489f4674 # main
         with:
           versions: locked
           python-version: ${{ matrix.python-version }}
